@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
 
-Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
+Route::get('/', [HomeController::class, 'index']);
+
+Route::resource('articles', ArticleController::class)
+    ->names('articles');
 
 require __DIR__.'/auth.php';
