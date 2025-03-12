@@ -14,6 +14,9 @@ Route::middleware(['auth'])->group(function () {
     ->names('articles');
 
     Route::get('/editor', [EditorController::class, 'index'])->name('editor.index');
+
+    Route::get('/profile', [UserController::class, 'edit'])->name('editor.index');
+
 });
 
 require __DIR__.'/auth.php';
