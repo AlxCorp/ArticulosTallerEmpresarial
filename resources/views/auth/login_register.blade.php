@@ -1,4 +1,11 @@
-<x-app-layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Empresarial 2.0</title>
+</head>
+<body>
     <link rel="stylesheet" href="{{asset('css/login_register_form.css')}}">
     <div class="container" id="container">
         <div class="form-container sign-up-container">
@@ -37,4 +44,5 @@
         </div>
     </div>
     <script src="{{asset('js/login_register_form.js')}}"></script>
-</x-app-layout>
+</body>
+</html>
