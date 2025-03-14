@@ -1,4 +1,4 @@
-<div class="article-list">
+<main class="article-list grid grid-cols-3 gap-6 px-8">
     @foreach($articles as $article)
         <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="{{ route('articles.show', $article->slug) }}">
@@ -32,4 +32,4 @@
             </div>
         </article>
     @endforeach
-</div>
+</main>
