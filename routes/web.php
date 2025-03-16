@@ -4,13 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EditorController;
 
-Route::get('/', [HomeController::class, 'index'])
-    ->middleware('roleBasedRedirect');
+Route::middleware('roleBasedRedirect')
+    ->get('/', [HomeController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->middleware('roleBasedRedirect');
-
     Route::resource('articles', ArticleController::class)->names('articles');
    
     Route::get('/favorites', [ArticleController::class, 'favorites'])->name('articles.favorites');
