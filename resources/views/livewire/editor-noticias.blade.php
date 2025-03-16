@@ -44,7 +44,7 @@
                         TEST
                     </td>
                     <td class="px-6 py-4">
-                        {{ $article->img }}
+                        <img class="h-auto max-w-full" src="/storage/images/{{ $article->img }}" height="60px" width="60px">
                     </td>
                     <td class="px-6 py-4">
                         {{ $article->created_at }}
