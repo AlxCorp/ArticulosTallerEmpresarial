@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Genre;
 use App\Http\Requests\StoreArticleRequest;
+use App\Http\Requests\UpdateArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -37,9 +38,10 @@ class ArticleController extends Controller
         return view('articles.edit', compact(['genres', 'article', 'selectedGenres']));
     }
 
-    public function update() {
-        // TODO: Hacer mañana
-        return Article::all();
+    public function update(UpdateArticleRequest $request, $id) {
+        $article = Article::find($id);
+        $article->update($request->except('genres'));
+        $article->genres()->sync($request->input('genres'));
     }
 
     public function destroy($article) {

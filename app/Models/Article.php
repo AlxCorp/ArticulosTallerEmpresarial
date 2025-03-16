@@ -10,7 +10,8 @@ class Article extends Model
     protected $fillable = [
         'title',
         'content',
-        'slug'
+        'slug',
+        'img'
     ];
 
     public function genres() {
