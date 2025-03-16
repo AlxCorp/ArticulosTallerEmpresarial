@@ -4,7 +4,7 @@
 
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Editar post
+                    Crear Artículo
                 </h3>
                 <button wire:click="closeModal" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -14,7 +14,7 @@
                 </button>
             </div>
 
-            <form wire:submit.prevent="updateArticle" class="p-4 md:p-5">
+            <form wire:submit.prevent="createArticle" class="p-4 md:p-5">
                 @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
@@ -43,8 +43,8 @@
                         @error('img') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <button type="submit" class="cursor-pointer focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Editar Artículo</button>
+                <button type="submit" class="cursor-pointer focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">Crear Artículo</button>
             </form>
         </div>
     </div>
-</div> 
+</div>

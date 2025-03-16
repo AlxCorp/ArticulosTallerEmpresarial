@@ -52,12 +52,15 @@ class EditArticle extends Component
             ],
             'content' => 'required',
             'genres' => 'required|array',
-            'img' => 'nullable|image|max:2048'
+            'img' => 'nullable|max:2048'
         ]);
 
-        if ($this->img) {
+
+        if ($this->img != $this->article->img) {
             $this->filename = $this->article->slug.'ArticleImage.'.$this->img->getClientOriginalExtension();
             $this->img->storeAs('images',$this->filename,'public');
+        } else {
+            $this->filename = $this->article->img;
         }
 
         $this->article->update([
