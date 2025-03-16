@@ -27,6 +27,6 @@ class UserController extends Controller
             $user->update(['img'=>$filename]);
         }
 
-        return view('articles.index');
+        return redirect()->route('articles.index');
     }
 }
