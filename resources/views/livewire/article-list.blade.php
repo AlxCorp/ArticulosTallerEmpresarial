@@ -2,7 +2,11 @@
     @foreach($articles as $article)
         <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="{{ route('articles.show', $article->slug) }}">
-                <img class="rounded-t-lg" src="{{ $article->img }}"/>
+                @if ($article->img != "")
+                    <img class="rounded-t-lg" src="{{ $article->img }}"/>
+                @else
+                    <img class="rounded-t-lg" src="https://tallerempresarial.es/wp-content/uploads/2020/04/foto_entrada.jpg"/>
+                @endif
             </a>
             <div class="p-5">
                 <a href="{{ route('articles.show', $article->slug) }}">
