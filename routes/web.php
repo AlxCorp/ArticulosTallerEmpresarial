@@ -12,6 +12,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->middleware('roleBasedRedirect');
 
     Route::resource('articles', ArticleController::class)->names('articles');
+   
+    Route::get('/favorites', [ArticleController::class, 'favorites'])->name('articles.favorites');
 
     Route::get('/editor', [EditorController::class, 'index'])->name('editor.index');
 
