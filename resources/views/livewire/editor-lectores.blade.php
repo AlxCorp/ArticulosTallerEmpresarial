@@ -1,4 +1,7 @@
 <div class="relative overflow-x-auto">
+    @if ($showChangePassword != -1)
+        @livewire('change-password', ['userId' => $showChangePassword])
+    @endif
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -10,6 +13,9 @@
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Imagen
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Teléfono
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Change Password
@@ -38,7 +44,10 @@
                         {{ $reader->img }}
                     </td>
                     <td class="px-6 py-4">
-                        <button type="button" class="cursor-pointer focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">CAMBIAR CONTRASEÑA</button>
+                        {{ $reader->tlf }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <button type="button" wire:click="showChangePasswordModal({{ $reader->id }})" class="cursor-pointer focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">CAMBIAR CONTRASEÑA</button>
                     </td>
                     <td class="px-6 py-4">
                         {{ $reader->created_at }}
