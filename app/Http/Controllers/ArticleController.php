@@ -54,4 +54,8 @@ class ArticleController extends Controller
     public function favorites() {
         return view('articles.favorites');
     }
+
+    public function genres() {
+        return view('articles.genres');
+    }
 }
