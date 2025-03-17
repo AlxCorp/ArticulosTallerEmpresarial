@@ -36,7 +36,7 @@ class EditorNoticias extends Component
         $this->showArticleCreate = true;
     }
     
-    public function showLikes($articleId) {
+    public function showLikesF($articleId) {
         $this->showLikes = $articleId;
     }
 
