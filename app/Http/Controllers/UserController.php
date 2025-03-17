@@ -20,6 +20,11 @@ class UserController extends Controller
             $user->update(['name' => $request->input('user-name')]);
         }
 
+        // Tel
+        if($request->has('user-tlf')){
+            $user->update(['tlf' => $request->input('user-tlf')]);
+        }
+
         // Imagen de perfil
         if($request->hasFile('user-icon')){
             $filename = str_replace(['@', '.'], '', $user->email).'Image.'.$request->file('user-icon')->getClientOriginalExtension();
