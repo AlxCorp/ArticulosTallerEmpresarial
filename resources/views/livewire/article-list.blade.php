@@ -3,7 +3,7 @@
         <article class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="{{ route('articles.show', $article->slug) }}">
                 @if ($article->img != "")
-                    <img class="rounded-t-lg" src="{{ $article->img }}"/>
+                    <img class="rounded-t-lg" src="/storage/images/{{ $article->img }}"/>
                 @else
                     <img class="rounded-t-lg" src="https://tallerempresarial.es/wp-content/uploads/2020/04/foto_entrada.jpg"/>
                 @endif
