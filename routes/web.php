@@ -13,6 +13,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('articles', ArticleController::class)->names('articles');
    
     Route::get('/favorites', [ArticleController::class, 'favorites'])->name('articles.favorites');
+    Route::get('/genres', [ArticleController::class, 'genres'])->name('articles.genres');
 
     Route::get('/editor', [EditorController::class, 'index'])->name('editor.index');
 
