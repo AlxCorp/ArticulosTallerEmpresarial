@@ -9,10 +9,13 @@ class EditorGeneros extends Component
 {
     public $genres;
     public $showGenreCreate = false;
+    public $showGenreEdit = -1;
 
     protected $listeners = [
         'genreCreated' => 'genreCreated',
         'closeModal' => 'genreCreated',
+        'closeEditModal' => 'hideEditedModal',
+        'genreEdited' => 'genreEdited',
     ];
     
     public function mount()
@@ -38,6 +41,28 @@ class EditorGeneros extends Component
     public function genreCreated()
     {
         $this->showGenreCreate = false;
+        $this->genres = Genre::all();
+    }
+
+    public function showEditedModal($genreId)
+    {
+        $this->showGenreEdit = $genreId;
+    }
+
+    public function hideEditedModal()
+    {
+        $this->showGenreEdit = -1;
+    }
+
+    public function genreEdited()
+    {
+        $this->showGenreEdit = -1;
+        $this->genres = Genre::all();
+    }
+
+    public function delete($genreId) {
+        $genre = Genre::find($genreId);
+        $genre->delete();
         $this->genres = Genre::all();
     }
 }
