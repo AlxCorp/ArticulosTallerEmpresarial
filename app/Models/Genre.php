@@ -7,6 +7,11 @@ use App\Models\Article;
 
 class Genre extends Model
 {
+    protected $fillable = [
+        'name',
+        'description',
+    ];
+
     public function articles() {
         return $this->belongsToMany(Article::class);
     }
