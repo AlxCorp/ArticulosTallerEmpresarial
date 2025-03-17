@@ -10,10 +10,12 @@ class EditorNoticias extends Component
     public $articles;
     public $showArticleEdit = -1;
     public $showArticleCreate = false;
+    public $showLikes = -1;
 
     protected $listeners = [
         'articleUpdated' => 'hideModal',
         'articleCreated' => 'hideCreateModal',
+        'likes' => 'hideLikes',
     ];
     
     public function mount()
@@ -33,6 +35,10 @@ class EditorNoticias extends Component
     public function showCreateModal() {
         $this->showArticleCreate = true;
     }
+    
+    public function showLikes($articleId) {
+        $this->showLikes = $articleId;
+    }
 
     public function hideModal() {
         $this->showArticleEdit = -1;
@@ -47,6 +53,11 @@ class EditorNoticias extends Component
     public function delete($articleId) {
         $article = Article::find($articleId);
         $article->delete();
+        $this->articles = Article::all();
+    }
+
+    public function hideLikes() {
+        $this->showLikes = -1;
         $this->articles = Article::all();
     }
 }
