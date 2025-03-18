@@ -52,7 +52,7 @@
                         {{ $article->title }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $article->content }}
+                        {{ Str::limit($article->content, 200, '...') }}
                     </td>
                     <td class="px-6 py-4">
                         TEST
