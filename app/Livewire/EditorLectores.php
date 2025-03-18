@@ -33,4 +33,10 @@ class EditorLectores extends Component
     {
         $this->showChangePassword = -1;
     }
+
+    public function deleteReader($readerId) {
+        $readers = User::find($readerId);
+        $readers->delete();
+        $this->readers = User::all();
+    }
 }
