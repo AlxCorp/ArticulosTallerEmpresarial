@@ -17,5 +17,8 @@ Ejercicio de una web en el que un periodista pueda crear publicaciones de notici
 ```BASH
 git clone https://github.com/AlxCorp/ArticulosTallerEmpresarial
 cd ArticulosTallerEmpresarial
+cp .env.example .env
+# Configurar .env
+php artisan migrate
 composer run dev
 ```
