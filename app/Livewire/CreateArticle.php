@@ -44,8 +44,10 @@ class CreateArticle extends Component
             'img' => 'nullable|image|max:2048', 
         ]);
 
+        $slug = Str::slug($this->title);
+
         if ($this->img) {
-            $this->filename = $this->article->slug.'ArticleImage.'.$this->img->getClientOriginalExtension();
+            $this->filename = $slug.'ArticleImage.'.$this->img->getClientOriginalExtension();
             $this->img->storeAs('images',$this->filename,'public');
         }
 
@@ -53,7 +55,7 @@ class CreateArticle extends Component
             'title' => $this->title,
             'content' => $this->content,
             'img' => $this->filename ?? null,
-            'slug' => Str::slug($this->title),
+            'slug' => $slug,
         ]);
 
         $article->genres()->attach($this->selectedGenres);
