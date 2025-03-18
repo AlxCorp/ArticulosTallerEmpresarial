@@ -20,5 +20,6 @@ cd ArticulosTallerEmpresarial
 cp .env.example .env
 # Configurar .env
 php artisan migrate
+php artisan storage:link
 composer run dev
 ```
