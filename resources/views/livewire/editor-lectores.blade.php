@@ -41,7 +41,7 @@
                         {{ $reader->email }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $reader->img }}
+                        <img class="h-auto max-w-full" src="/storage/images/{{ $reader->img }}" height="60px" width="60px">
                     </td>
                     <td class="px-6 py-4">
                         {{ $reader->tlf }}
